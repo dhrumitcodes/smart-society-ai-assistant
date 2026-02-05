@@ -1,49 +1,69 @@
-🏢 Smart Society AI Assistant
+# 🏢 Smart Society AI Assistant
 
-An AI-powered helpdesk for high-rise residential societies that helps residents quickly get answers about maintenance, complaints, visitor rules, and society notices using natural language.
-Built using Tambo AI, Next.js, and Tailwind CSS
+An AI-powered helpdesk for high-rise residential societies that helps residents quickly get answers about **maintenance**, **complaints**, **visitor rules**, and **society notices** using natural language.
 
-🚀 Problem Statement
+Built using **Tambo AI**, **Next.js**, and **Tailwind CSS**.
+
+
+
+## 🚀 Problem Statement
+
 Residents in high-rise societies often:
-Don’t know whom to contact for maintenance or complaints
-Get confused about visitor rules and society guidelines
-Depend on WhatsApp groups or office hours for simple queries
-This leads to delays, confusion, and repeated questions.
 
-💡 Solution
-Smart Society AI Assistant acts like a society office helpdesk, available 24/7.
+- Don’t know whom to contact for maintenance or complaints  
+- Get confused about visitor rules and society guidelines  
+- Depend on WhatsApp groups or office hours for simple queries  
+
+This leads to **delays, confusion, and repeated questions**.
+
+
+## 💡 Solution
+
+**Smart Society AI Assistant** acts like a **society office helpdesk**, available 24/7.
+
 Residents can:
-Ask about maintenance procedures
-Learn complaint filing steps
-Understand visitor and security rules
-Get guidance on society notices & policies
-The assistant responds in short, clear, human-like replies, not generic AI language.
 
-✨ Key Features
-🧠 AI-powered chat using TamboProvider
-🏢 Society-specific system prompt (office-style responses)
-🧩 Registered AI tools & components (Tambo requirement compliant)
-💬 Prebuilt chat UI with message history
-🎨 Clean, minimal UI
-🔐 Secure environment
+- Ask about maintenance procedures  
+- Learn complaint filing steps  
+- Understand visitor and security rules  
+- Get guidance on society notices & policies  
 
-🛠 Tech Stack
-Next.js (App Router)
-Tambo AI
-React
-Tailwind CSS
-TypeScript
+The assistant responds in **short, clear, human-like replies**, not generic AI language.
 
-🧩 Tambo Integration
+
+## ✨ Key Features
+
+- 🧠 AI-powered chat using **TamboProvider**
+- 🏢 Society-specific system prompt (office-style responses)
+- 🧩 Registered AI tools & components (Tambo-compliant)
+- 💬 Prebuilt chat UI with message history
+- 🎨 Clean, minimal UI
+- 🔐 Secure environment variable handling
+
+
+## 🛠 Tech Stack
+
+- Next.js (App Router)
+- Tambo AI
+- React
+- Tailwind CSS
+- TypeScript
+
+
+## 🧩 Tambo Integration
+
 This project explicitly:
-Registers tools and components in src/lib/tambo.ts
-Uses <TamboProvider> with:
-components
-tools
-systemPrompt
-Does NOT rely on prompt-only AI
 
-📂 Project Structure (Important Files)
+- Registers tools and components in `src/lib/tambo.ts`
+- Uses `TamboProvider` with:
+  - `components`
+  - `tools`
+  - `systemPrompt`
+- Does **NOT** rely on prompt-only AI
+
+
+
+## 📂 Project Structure
 src/
 ├── app/
 │   ├── page.tsx          # Main chat UI
@@ -62,33 +82,46 @@ src/
 └── styles/
     └── globals.css
 
- git clone https://github.com/dhrumitcodes/smart-society-ai-assistant.git
+
+## ⚙️ Local Setup
+
+### 1. Clone repo
+```bash
+git clone https://github.com/dhrumitcodes/smart-society-ai-assistant.git
 cd smart-society-ai-assistant
 
--Install dependecnies
+ 2- Install Dependencies
 npm install
 
--Setup Environment
+3.- Setup Environment
 cp example.env.local .env.local
 NEXT_PUBLIC_TAMBO_API_KEY=your_api_key_here
 
--Run project
+Run project
 npm run dev
 Open: http://localhost:3000
 
 🌍 Deployment
+
 Deployed using Vercel.
 Steps:
-Push to GitHub
-Import repo into Vercel
-Add environment variable
-Deploy
+1-Push to GitHub
+2-Import repo into Vercel
+3-Add environment variable
+4-Deploy
 
 🔮 Future Scope
+
 Resident login
 Admin dashboard
 Complaint tracking
 Real society database integration
+
+👤 Author
+Dhrumit Choudhary
+
+
+
 
 
 
