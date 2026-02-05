@@ -120,6 +120,17 @@ Real society database integration
 👤 Author
 Dhrumit Choudhary
 
+## 🤖 AI Usage & Transparency
+This project uses Artificial Intelligence as a core feature.
+- Powered by **Tambo AI (LLM-based assistant)**
+- Uses a **society-specific system prompt** to ensure office-style, practical responses
+- Registers **AI tools and UI components** via `TamboProvider` (not prompt-only)
+- AI responses are generated dynamically based on user queries
+- No hardcoded or rule-based replies are used
+
+The AI is designed to act as a **virtual society office helpdesk**, providing clear, concise, and human-like guidance to residents.
+
+
 
 
 
