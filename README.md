@@ -1,131 +1,97 @@
-# Tambo Template
+🏢 Smart Society AI Assistant
 
-This is a starter NextJS app with Tambo hooked up to get your AI app development started quickly.
+An AI-powered helpdesk for high-rise residential societies that helps residents quickly get answers about maintenance, complaints, visitor rules, and society notices using natural language.
+Built using Tambo AI, Next.js, and Tailwind CSS
 
-## Get Started
+🚀 Problem Statement
+Residents in high-rise societies often:
+Don’t know whom to contact for maintenance or complaints
+Get confused about visitor rules and society guidelines
+Depend on WhatsApp groups or office hours for simple queries
+This leads to delays, confusion, and repeated questions.
 
-1. Run `npm create-tambo@latest my-tambo-app` for a new project
+💡 Solution
+Smart Society AI Assistant acts like a society office helpdesk, available 24/7.
+Residents can:
+Ask about maintenance procedures
+Learn complaint filing steps
+Understand visitor and security rules
+Get guidance on society notices & policies
+The assistant responds in short, clear, human-like replies, not generic AI language.
 
-2. `npm install`
+✨ Key Features
+🧠 AI-powered chat using TamboProvider
+🏢 Society-specific system prompt (office-style responses)
+🧩 Registered AI tools & components (Tambo requirement compliant)
+💬 Prebuilt chat UI with message history
+🎨 Clean, minimal UI
+🔐 Secure environment
 
-3. `npx tambo init`
+🛠 Tech Stack
+Next.js (App Router)
+Tambo AI
+React
+Tailwind CSS
+TypeScript
 
-- or rename `example.env.local` to `.env.local` and add your tambo API key you can get for free [here](https://tambo.co/dashboard).
+🧩 Tambo Integration
+This project explicitly:
+Registers tools and components in src/lib/tambo.ts
+Uses <TamboProvider> with:
+components
+tools
+systemPrompt
+Does NOT rely on prompt-only AI
 
-4. Run `npm run dev` and go to `localhost:3000` to use the app!
+📂 Project Structure (Important Files)
+src/
+├── app/
+│   ├── page.tsx          # Main chat UI
+│   ├── layout.tsx        # Global layout
+│
+├── components/
+│   └── tambo/
+│       └── message-thread-full.tsx  # Chat interface
+│
+├── lib/
+│   └── tambo.ts          # Tool & component registration
+│
+├── services/
+│   └── population-stats.ts  # Example tool logic
+│
+└── styles/
+    └── globals.css
 
-## Customizing
+ git clone https://github.com/dhrumitcodes/smart-society-ai-assistant.git
+cd smart-society-ai-assistant
 
-### Change what components tambo can control
+-Install dependecnies
+npm install
 
-You can see how components are registered with tambo in `src/lib/tambo.ts`:
+-Setup Environment
+cp example.env.local .env.local
+NEXT_PUBLIC_TAMBO_API_KEY=your_api_key_here
 
-```tsx
-export const components: TamboComponent[] = [
-  {
-    name: "Graph",
-    description:
-      "A component that renders various types of charts (bar, line, pie) using Recharts. Supports customizable data visualization with labels, datasets, and styling options.",
-    component: Graph,
-    propsSchema: graphSchema,
-  },
-  // Add more components here
-];
-```
+-Run project
+npm run dev
+Open: http://localhost:3000
 
-You can install the graph component into any project with:
+🌍 Deployment
+Deployed using Vercel.
+Steps:
+Push to GitHub
+Import repo into Vercel
+Add environment variable
+Deploy
 
-```bash
-npx tambo add graph
-```
+🔮 Future Scope
+Resident login
+Admin dashboard
+Complaint tracking
+Real society database integration
 
-The example Graph component demonstrates several key features:
 
-- Different prop types (strings, arrays, enums, nested objects)
-- Multiple chart types (bar, line, pie)
-- Customizable styling (variants, sizes)
-- Optional configurations (title, legend, colors)
-- Data visualization capabilities
 
-Update the `components` array with any component(s) you want tambo to be able to use in a response!
 
-You can find more information about the options [here](https://docs.tambo.co/concepts/generative-interfaces/generative-components)
 
-### Add tools for tambo to use
 
-Tools are defined with `inputSchema` and `outputSchema`:
-
-```tsx
-export const tools: TamboTool[] = [
-  {
-    name: "globalPopulation",
-    description:
-      "A tool to get global population trends with optional year range filtering",
-    tool: getGlobalPopulationTrend,
-    inputSchema: z.object({
-      startYear: z.number().optional(),
-      endYear: z.number().optional(),
-    }),
-    outputSchema: z.array(
-      z.object({
-        year: z.number(),
-        population: z.number(),
-        growthRate: z.number(),
-      }),
-    ),
-  },
-];
-```
-
-Find more information about tools [here.](https://docs.tambo.co/concepts/tools)
-
-### The Magic of Tambo Requires the TamboProvider
-
-Make sure in the TamboProvider wrapped around your app:
-
-```tsx
-...
-<TamboProvider
-  apiKey={process.env.NEXT_PUBLIC_TAMBO_API_KEY!}
-  components={components} // Array of components to control
-  tools={tools} // Array of tools it can use
->
-  {children}
-</TamboProvider>
-```
-
-In this example we do this in the `Layout.tsx` file, but you can do it anywhere in your app that is a client component.
-
-### Voice input
-
-The template includes a `DictationButton` component using the `useTamboVoice` hook for speech-to-text input.
-
-### MCP (Model Context Protocol)
-
-The template includes MCP support for connecting to external tools and resources. You can use the MCP hooks from `@tambo-ai/react/mcp`:
-
-- `useTamboMcpPromptList` - List available prompts from MCP servers
-- `useTamboMcpPrompt` - Get a specific prompt
-- `useTamboMcpResourceList` - List available resources
-
-See `src/components/tambo/mcp-components.tsx` for example usage.
-
-### Change where component responses are shown
-
-The components used by tambo are shown alongside the message response from tambo within the chat thread, but you can have the result components show wherever you like by accessing the latest thread message's `renderedComponent` field:
-
-```tsx
-const { thread } = useTambo();
-const latestComponent =
-  thread?.messages[thread.messages.length - 1]?.renderedComponent;
-
-return (
-  <div>
-    {latestComponent && (
-      <div className="my-custom-wrapper">{latestComponent}</div>
-    )}
-  </div>
-);
-```
-
-For more detailed documentation, visit [Tambo's official docs](https://docs.tambo.co).
