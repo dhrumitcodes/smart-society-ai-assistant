@@ -101,17 +101,18 @@ Run project
 npm run dev
 Open: http://localhost:3000
 
-🌍 Deployment
+## 🌍 Deployment
+This project is deployed on **Vercel**.
+🔗 Live Demo: https://smart-society-ai-assistant.vercel.app/
 
-Deployed using Vercel.
-Steps:
-1-Push to GitHub
-2-Import repo into Vercel
-3-Add environment variable
-4-Deploy
+### Deployment Steps
+1. Push the project to GitHub
+2. Import the repository into Vercel
+3. Add required environment variables
+4. Deploy
+
 
 🔮 Future Scope
-
 Resident login
 Admin dashboard
 Complaint tracking
