@@ -83,7 +83,7 @@ src/
     └── globals.css
 
 
-## ⚙️ Local Setup
+## ⚙️  Setup
 
 ### 1. Clone repo
 ```bash
